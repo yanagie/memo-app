@@ -4,9 +4,12 @@
   "license": "MIT",
   "scripts": {
     "build": "turbo run build",
-    "dev": "turbo run dev --parallel",
-    "start": "turbo run start --parallel",
-    "clean": "turbo run clean && rm -rf node_modules"
+    "dev": "pnpm docker:up && turbo run dev --parallel",
+    "start": "pnpm docker:up && turbo run start --parallel",
+    "studio": "turbo run studio",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down"
   },
   "devDependencies": {
     "turbo": "^1.6.3"

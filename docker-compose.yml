@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:15
+    container_name: postgres
+    ports:
+      - $POSTGRES_PORT:$POSTGRES_PORT
+    volumes:
+      - db-store:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=$POSTGRES_PASSWORD
+
+volumes:
+  db-store:
+  
